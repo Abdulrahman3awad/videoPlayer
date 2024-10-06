@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video player</title>
+    <!-- إضافة مكتبة Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: "#001F3F",
+                        blue: "#3A6D8C",
+                        light: "#6A9AB0",
+                        whitee: "#EAD8B1"
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="script.js"></script>
+</head>
+
+<body class="bg-dark min-h-screen text-whitee flex flex-col items-center justify-center p-5">
+    <div class="container  max-w-2xl flex items-center flex-col gap-7 bg-light p-5 rounded-lg shadow-lg">
+        <!-- Video Section -->
+        <div class="video w-full overflow-hidden  relative mb-5">
+            <video id="video" src="" class="w-full rounded-lg shadow-md" disablePictureInPicture playsinline>
+            </video>
+            <!-- أدوات التحكم مخصصة أسفل الفيديو -->
+            <div class="controls duration-200 absolute -bottom-20 h-16 left-0 w-full bg-dark bg-opacity-75 ">
+                <input type="range"
+                    class="timeRange w-full h-1 bg-light  appearance-none cursor-pointer accent-blue focus:outline-none relative -translate-y-3 -top-1">
+                <div class="down relative -top-3 px-3 flex items-center gap-1 justify-between w-full">
+                    <!-- زر Play مع أيقونة -->
+                    <button class="play bg-blue  py-2 px-4 rounded-lg flex items-center justify-center">
+                        <span class="material-icons">play_arrow</span>
+                    </button>
+                    <p class="time me-auto text-whitee mx-4">00:00 / 00:00</p>
+                    <!-- زر Mute مع أيقونة -->
+                    <button class="audio   text-whitee py-2 px-4 rounded-lg flex items-center justify-center">
+                        <span class="material-icons">volume_up</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <input type="range" max="1" min="0" value=".5" step=".01"
+                            class="volume w-24 bg-light rounded-lg appearance-none cursor-pointer accent-blue h-1  focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-75">
+                    </div>
+                    <select class="speed ml-4 bg-dark text-whitee p-1 border-blue rounded-lg">
+                        <option value=".5">0.5 X</option>
+                        <option value=".75">0.75 X</option>
+                        <option value="1" selected>1 X</option>
+                        <option value="1.25">1.25 X</option>
+                        <option value="1.5">1.5 X</option>
+                        <option value="1.75">1.75 X</option>
+                        <option value="2">2 X</option>
+                        <option value="3">3 X</option>
+                    </select>
+                    <!-- زر Fullscreen مع أيقونة -->
+                    <button class="screen  text-whitee py-2 px-4 rounded-lg flex items-center justify-center">
+                        <span class="material-icons">fullscreen</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <label class="w-44 h-10 border-4 flex items-center justify-center border-blue text-whitee cursor-pointer"
+            for="x">
+            <span class="material-icons">file_upload</span> Choose File
+        </label>
+        <input type="file" id="x" class="uploadVideo hidden">
+    </div>
+</body>
+
+</html>
